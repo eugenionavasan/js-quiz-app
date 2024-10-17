@@ -115,7 +115,7 @@ const Quiz = () => {
         ) : (
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Quiz Finished!</h2>
-            <p className="text-lg font-semibold">Your score: {score} / {questions.length}</p>
+            <p className="text-lg font-semibold text-gray-800">Your score: {score} / {questions.length}</p>
           </div>
         )}
       </div>
