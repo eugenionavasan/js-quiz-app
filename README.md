@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Quiz App
+
+This is a simple quiz application built with **Next.js** and **TypeScript** that allows users to answer quiz questions from different categories and difficulties. It is styled using **Tailwind CSS**.
+
+## Features
+
+- Select a quiz topic and difficulty.
+- Answer questions, and get feedback on whether your answer was correct or incorrect.
+- Score is displayed throughout the quiz.
+- Questions are shuffled each time a quiz starts.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** (v14.x or higher)
+- **npm** (v6.x or higher) or **yarn** (v1.x or higher)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/quiz-app.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd quiz-app
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+## Adding New Quiz Data
+
+To add new questions and categories, follow these steps:
+
+### 1. Add Questions to `quizData.ts`
+
+Go to the `pages/api/quizData.ts` file and add your questions following this structure:
+
+```ts
+CATEGORY_NAME: {
+  DIFFICULTY: [
+    {
+      question: "Your question goes here",
+      options: [
+        "1ST OPTION",
+        "2ND OPTION",
+        "3RD OPTION",
+        "4TH OPTION"
+      ],
+      answer: NUMBER // Index of the correct answer (0 to 3)
+    },
+    // More questions...
+  ],
+},
+```
+
+#### Example
+
+```ts
+science: {
+  easy: [
+    {
+      question: "What is the chemical symbol for water?",
+      options: ["H2O", "O2", "CO2", "N2"],
+      answer: 0, // H2O is the correct answer
+    },
+  ],
+  medium: [
+    {
+      question: "Which planet is known as the Red Planet?",
+      options: ["Earth", "Mars", "Venus", "Jupiter"],
+      answer: 1, // Mars is the correct answer
+    },
+  ],
+  hard: [
+    {
+      question: "What is the powerhouse of the cell?",
+      options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      answer: 1, // Mitochondria is the correct answer
+    },
+  ],
+},
+```
+
+### 2. Add New Category to `page.tsx`
+
+If you're adding a **new category**, you need to add it to the quiz selection page.
+
+1. Open `app/page.tsx`.
+2. Add the following code **below** the `div` that contains the `<h1>Select a Quiz</h1>`.
+
+```tsx
+<button
+  onClick={() => setQuizTopic("NEW_CATEGORY_NAME")}
+  className={`px-4 py-2 text-white font-semibold rounded-lg transition ${
+    quizTopic === "NEW_CATEGORY_NAME"
+      ? "bg-green-600"
+      : "bg-green-500 hover:bg-green-600"
+  }`}
+>
+  NEW_CATEGORY_NAME
+</button>
+```
+
+#### Example:
+
+If you're adding a new category called **"math"**, the code would look like this:
+
+```tsx
+<button
+  onClick={() => setQuizTopic("math")}
+  className={`px-4 py-2 text-white font-semibold rounded-lg transition ${
+    quizTopic === "math"
+      ? "bg-green-600"
+      : "bg-green-500 hover:bg-green-600"
+  }`}
+>
+  Math
+</button>
+```
+
+### 3. Save the file and restart the development server if necessary:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now your new category and questions should appear in the quiz selection screen, and you can answer the newly added questions.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
