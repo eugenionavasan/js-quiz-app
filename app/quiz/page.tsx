@@ -49,7 +49,7 @@ const Quiz = () => {
 
     setShowCorrectAnswer(true);
 
-    // Automatically move to the next question after 4 seconds so you can read the correct answer
+    // Automatically move to the next question after 5 seconds so you can read the correct answer
     setTimeout(() => {
       setSelectedAnswer(null);
       setShowCorrectAnswer(false);
@@ -68,7 +68,7 @@ const Quiz = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="container max-w-3xl mx-auto bg-white shadow-md rounded-lg p-12 relative">
+      <div className="container max-w-4xl mx-auto bg-white shadow-md rounded-lg p-12">
         {/* Score Display */}
         <div className="fixed top-6 right-6 bg-blue-600 text-white font-bold px-4 py-2 rounded-full shadow-lg">
           Score: {score} / {questions.length}
@@ -81,8 +81,8 @@ const Quiz = () => {
               {questions[currentQuestionIndex].question}
             </h2>
 
-            {/* Options Display */}
-            <div className="grid grid-cols-1 gap-4">
+            {/* Options Display in 2x2 grid */}
+            <div className="grid grid-cols-2 gap-4">
               {questions[currentQuestionIndex].options.map((option, index) => {
                 let buttonClasses = "px-4 py-2 rounded-lg text-white font-semibold transition";
 
@@ -114,8 +114,8 @@ const Quiz = () => {
           </>
         ) : (
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Quiz Finished!</h2>
-            <p className="text-lg font-semibold text-gray-800">Your score: {score} / {questions.length}</p>
+            <h2 className="text-5xl font-bold text-gray-800 mb-6 font-pixel">Quiz Finished!</h2>
+            <p className="text-3xl font-semibold text-gray-800 font-pixel">Your score: {score} / {questions.length}</p>
           </div>
         )}
       </div>

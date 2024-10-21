@@ -14,4 +14,12 @@ export interface QuizCategory {
 export interface QuizData {
   javaScript: QuizCategory;
   react: QuizCategory;
+  typescript: QuizCategory;
+  reactNative: QuizCategory;
+  gitGithub: QuizCategory;
+  html: QuizCategory;
+  css: QuizCategory;
+  nextjs: QuizCategory;
+  angular: QuizCategory;
+  astro: QuizCategory;
 }
