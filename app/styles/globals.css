@@ -25,3 +25,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  html {
+    font-family: var(--font-pixel), system-ui, sans-serif;
+  }
+}

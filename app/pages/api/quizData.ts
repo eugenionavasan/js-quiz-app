@@ -26,7 +26,7 @@ export const quizData: QuizData = {
   },
   react: {
     easy: [
-      { question: "What is React?", options: ["A CSS framework", "A JavaScript library for building user interfaces", "A database system", "A templat]e engine"], answer: 1 },
+      { question: "What is React?", options: ["A CSS framework", "A JavaScript library for building user interfaces", "A database system", "A template engine"], answer: 1 },
       { question: "What is JSX in React?", options: ["A JavaScript function", "A CSS framework", "A syntax extension for JavaScript", "A type of API"], answer: 2 },
       { question: "How do you create a React component?", options: ["By using a class or a function", "By using an array", "By creating a variable", "By importing CSS files"], answer: 0 },
       { question: "What is the purpose of `state` in React?", options: ["To store and manage data in components", "To define styles", "To handle routing", "To make API calls"], answer: 0 },
